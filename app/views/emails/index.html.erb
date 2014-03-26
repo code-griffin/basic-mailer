@@ -1,0 +1,51 @@
+<br><br>
+<div class="container">
+	<div class="row">
+		<div class="sm-12">
+			<%=link_to "Compose" , new_email_path , class:"btn btn-sm btn-success" %>
+		</div>
+	</div>
+	<h2>Sent Email: </h2>
+	<div class="row">
+		<% @sent.each do |m| %>
+			<div class="col-sm-12">
+				<div class="col-sm-3">
+					<%= m.to %>
+				</div>
+
+				<div class="col-sm-3">
+					<%= m.subject %>
+				</div>
+
+				<div class="col-sm-6">
+					<%= m.body %>
+				</div>
+
+			</div>
+		<% end %>
+	</div>
+
+	<h2>Draft: </h2>
+	<div class="row">
+		<% @draft.each do |m| %>
+
+			<%= link_to edit_email_path(m) do %>
+			<div class="col-sm-12">
+
+				<div class="col-sm-3">
+					<%= m.to %>
+				</div>
+
+				<div class="col-sm-3">
+					<%= m.subject %>
+				</div>
+
+				<div class="col-sm-6">
+					<%= m.body %>
+				</div>
+
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
